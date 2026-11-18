@@ -7,6 +7,14 @@ const socialTitle = "A global gathering of leading scientists and creatives.";
 const socialDescription =
   "Human x Intelligence is an international symposium amongst artists, thinkers, scientists, and technologists, and the public to explore the changing role of the human in an increasingly intelligent world.";
 
+const previewImage = {
+  url: "/og.png",
+  width: 1200,
+  height: 1200,
+  alt: "Human x Intelligence",
+  type: "image/png",
+};
+
 export const metadata: Metadata = {
   title: "Human x Intelligence",
   description: `${socialTitle} ${socialDescription}`,
@@ -15,11 +23,14 @@ export const metadata: Metadata = {
     description: socialDescription,
     siteName: "Human x Intelligence",
     type: "website",
+    url: "https://www.human-x-intelligence.com",
+    images: [previewImage],
   },
   twitter: {
     card: "summary",
     title: socialTitle,
     description: socialDescription,
+    images: [previewImage.url],
   },
 };
 
