@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const participants: {
+export const participants: {
   name: string;
   role: string;
   link: { label: string; href: string };

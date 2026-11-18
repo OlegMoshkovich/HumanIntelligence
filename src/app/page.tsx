@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { EditionPanel } from "@/components/edition-panel";
 import { HomeGallery } from "@/components/home-gallery";
 import { HomeMobile } from "@/components/home-mobile";
 import { SiteHeader } from "@/components/site-header";
@@ -62,13 +62,6 @@ const formats = [
       "These gatherings invite us to consider how we experience the world through our bodies and senses, and how food, taste, touch, conversation and shared rituals shape our relationships with one another.",
     ],
   },
-];
-
-const editionLinks = [
-  { label: "MAIN VENUE", href: "/istanbul#venue", current: true },
-  { label: "PARTICIPANTS", href: "/istanbul#participants" },
-  { label: "SCHEDULE", href: "/istanbul#programme" },
-  { label: "PHOTOS & VIDEOS", href: "/istanbul#venue" },
 ];
 
 export default function HomePage() {
@@ -189,71 +182,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-8 lg:grid-cols-[240px_minmax(0,1fr)] lg:justify-between">
-            <nav className="flex flex-col text-[16px] leading-[60px] font-bold tracking-[-0.96px]">
-              {editionLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className={
-                    item.current ? "text-accent underline" : "text-white"
-                  }
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-            <div>
-              <Link
-                href="/istanbul"
-                className="inline-flex items-center gap-3 text-[20px] italic"
-              >
-                Read more
-                <img
-                  src="/images/home-arrow-read.svg"
-                  alt=""
-                  width={11}
-                  height={11}
-                  className="rotate-[135deg]"
-                />
-              </Link>
-              <div className="relative mt-6">
-                <div className="grid grid-cols-[minmax(0,843fr)_minmax(80px,233fr)]">
-                  <div className="relative h-[240px] overflow-hidden sm:h-[360px] lg:h-[474px]">
-                    <img
-                      src="/images/home-venue-main.jpg"
-                      alt="Interior of Pasaj Zivo"
-                      className="absolute inset-0 h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="relative h-[240px] overflow-hidden sm:h-[360px] lg:h-[474px]">
-                    <img
-                      src="/images/home-venue-side.jpg"
-                      alt=""
-                      className="absolute top-[-0.04%] left-[-22.79%] h-[100.08%] w-[364.64%] max-w-none"
-                    />
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_16%,#47423c)]" />
-                  </div>
-                </div>
-                <Link
-                  href="/istanbul#venue"
-                  aria-label="See the Istanbul venue"
-                  className="absolute top-1/2 right-2 -translate-y-1/2"
-                >
-                  <img
-                    src="/images/home-arrow.svg"
-                    alt=""
-                    width={29}
-                    height={29}
-                    className="rotate-45"
-                  />
-                </Link>
-              </div>
-              <p className="mt-2 text-[16px] leading-normal italic">
-                Photo credit: Zivo
-              </p>
-            </div>
-          </div>
+          <EditionPanel />
         </div>
       </section>
 
