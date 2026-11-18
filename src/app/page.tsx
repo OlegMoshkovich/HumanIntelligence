@@ -3,10 +3,24 @@ import Link from "next/link";
 import { HomeMobile } from "@/components/home-mobile";
 import { SiteHeader } from "@/components/site-header";
 
+const socialTitle = "A global gathering of leading scientists and creatives.";
+const socialDescription =
+  "Human x Intelligence is an international symposium amongst artists, thinkers, scientists, and technologists, and the public to explore the changing role of the human in an increasingly intelligent world.";
+
 export const metadata: Metadata = {
   title: "Human x Intelligence",
-  description:
-    "A global gathering of leading scientists and creatives. The next edition is in Istanbul, December 15–18, 2026.",
+  description: `${socialTitle} ${socialDescription}`,
+  openGraph: {
+    title: socialTitle,
+    description: socialDescription,
+    siteName: "Human x Intelligence",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: socialTitle,
+    description: socialDescription,
+  },
 };
 
 const formats = [
