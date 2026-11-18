@@ -5,10 +5,20 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const editions = [
-  { label: "1 | Istanbul, 2026", href: "/istanbul" },
-  { label: "2 | London, 2027" },
-  { label: "3 | Osaka, TBD" },
+  { number: "1", place: "Istanbul, 2026", href: "/istanbul" },
+  { number: "2", place: "London, 2027" },
+  { number: "3", place: "Osaka, TBD" },
 ];
+
+function EditionLabel({ number, place }: { number: string; place: string }) {
+  return (
+    <span className="inline-grid grid-cols-[1ch_auto_auto] items-baseline justify-items-start gap-x-[0.35em]">
+      <span className="text-right tabular-nums">{number}</span>
+      <span>|</span>
+      <span>{place}</span>
+    </span>
+  );
+}
 
 export function SiteHeader({
   date,
@@ -57,14 +67,23 @@ export function SiteHeader({
         <div className="relative">
           <button
             type="button"
-            className="flex w-7 flex-col gap-[6px] lg:hidden"
-            aria-label="Editions"
+            className="flex h-[18px] w-7 items-center justify-center lg:hidden"
+            aria-label={open ? "Close" : "Editions"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
           >
-            <img src="/images/mobile-menu-line.svg" alt="" width={28} height={2} />
-            <img src="/images/mobile-menu-line.svg" alt="" width={28} height={2} />
-            <img src="/images/mobile-menu-line.svg" alt="" width={28} height={2} />
+            {open ? (
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+                <line x1="2" y1="2" x2="16" y2="16" stroke="black" strokeWidth="2" />
+                <line x1="16" y1="2" x2="2" y2="16" stroke="black" strokeWidth="2" />
+              </svg>
+            ) : (
+              <span className="flex w-full flex-col gap-[6px]">
+                <img src="/images/mobile-menu-line.svg" alt="" width={28} height={2} />
+                <img src="/images/mobile-menu-line.svg" alt="" width={28} height={2} />
+                <img src="/images/mobile-menu-line.svg" alt="" width={28} height={2} />
+              </span>
+            )}
           </button>
           <button
             type="button"
@@ -75,31 +94,34 @@ export function SiteHeader({
             Editions
           </button>
           {open ? (
-            <div className="absolute top-8 right-0 z-20 w-max rounded-[11px] bg-white px-5 py-4 text-[16px] font-medium leading-[1.96] lg:top-[30px] lg:w-[190px] lg:px-7 lg:py-[18px]">
+            <div className="absolute top-8 right-0 z-20 w-max rounded-[11px] bg-white px-5 py-4 text-[16px] font-medium leading-[1.96] whitespace-nowrap lg:top-[30px] lg:px-7 lg:py-[18px]">
               {editions.map((edition, index) => {
-                const className = `block w-full text-left ${
+                const className = `block w-full text-left whitespace-nowrap ${
                   index === selected ? "underline" : ""
                 }`;
+                const label = (
+                  <EditionLabel number={edition.number} place={edition.place} />
+                );
                 if (edition.href) {
                   return (
                     <Link
-                      key={edition.label}
+                      key={edition.place}
                       href={edition.href}
                       className={className}
                       onClick={() => setSelected(index)}
                     >
-                      {edition.label}
+                      {label}
                     </Link>
                   );
                 }
                 return (
                   <button
-                    key={edition.label}
+                    key={edition.place}
                     type="button"
                     onClick={() => setSelected(index)}
                     className={className}
                   >
-                    {edition.label}
+                    {label}
                   </button>
                 );
               })}
