@@ -1,24 +1,24 @@
 import Link from "next/link";
+import { HomeGallery } from "@/components/home-gallery";
 
 const people = [
   {
     name: "Yasin Abbasi Yadkori",
-    role: "Research Scientist, The AIR Lab, formerly DeepMind",
+    role: "Researcher, The AIR Lab; ex-DeepMind",
     image: "/images/mobile-yasin.jpg",
     imageClass: "absolute inset-0 h-full w-full object-cover",
   },
   {
     name: "Anna Aristova",
-    role: "Artist, Designer, Royal College of Art",
+    role: "Artist and Multidisciplinary Educator",
     image: "/images/mobile-anna.jpg",
-    imageClass:
-      "absolute top-[-0.64%] left-[-52.06%] h-[101.27%] w-[152%] max-w-none",
+    imageClass: "absolute inset-0 h-full w-full object-cover",
   },
   {
-    name: "Sattar Aristova",
-    role: "Professor",
+    name: "Sattar Vakili",
+    role: "Professor, University College London",
     image: "/images/mobile-sattar.jpg",
-    imageClass: "absolute inset-0 h-full w-full object-contain",
+    imageClass: "absolute inset-0 h-full w-full object-cover",
   },
 ];
 
@@ -67,29 +67,7 @@ export function HomeMobile() {
         </p>
       </section>
 
-      <section className="relative mt-12 h-[581px]">
-        <div className="absolute top-0 left-0 h-[292px] w-[80%] overflow-hidden">
-          <img
-            src="/images/home-point-cloud.jpg"
-            alt="A point-cloud figure standing in a dark landscape"
-            className="absolute top-[-0.04%] left-[-58.59%] h-[100.07%] w-[188.23%] max-w-none"
-          />
-        </div>
-        <div className="absolute top-[291px] right-0 h-[290px] w-[80%] overflow-hidden">
-          <img
-            src="/images/home-gathering.jpg"
-            alt="People gathered around a table in conversation"
-            className="h-full w-full object-cover"
-          />
-        </div>
-        <img
-          src="/images/mobile-logo-mark.svg"
-          alt=""
-          width={102}
-          height={39}
-          className="absolute top-[272px] right-8"
-        />
-      </section>
+      <HomeGallery variant="mobile" />
 
       <section className="px-5 pt-12 pb-16">
         <div className="space-y-6 text-[20px] leading-[30px] font-bold tracking-[-0.6px]">

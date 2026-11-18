@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HomeGallery } from "@/components/home-gallery";
 import { HomeMobile } from "@/components/home-mobile";
 import { SiteHeader } from "@/components/site-header";
 
@@ -100,31 +101,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative mt-16 hidden lg:mt-20 lg:block">
-          <div className="grid lg:grid-cols-2">
-            <div className="relative h-[360px] overflow-hidden sm:h-[480px] lg:h-[677px]">
-              <img
-                src="/images/home-point-cloud.jpg"
-                alt="A point-cloud figure standing in a dark landscape"
-                className="absolute top-[-0.04%] left-[-58.59%] h-[100.07%] w-[188.23%] max-w-none"
-              />
-            </div>
-            <div className="relative h-[360px] overflow-hidden sm:h-[480px] lg:mt-[74px] lg:h-[677px]">
-              <img
-                src="/images/home-gathering.jpg"
-                alt="People gathered around a table in conversation"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-          </div>
-          <img
-            src="/images/home-logo-mark.svg"
-            alt=""
-            width={161}
-            height={61}
-            className="absolute top-8 left-1/2 -translate-x-1/2 lg:top-[43px] lg:-translate-x-[calc(50%+40px)]"
-          />
-        </section>
+        <HomeGallery variant="desktop" />
 
         <section className="hidden gap-10 px-6 py-16 lg:grid lg:grid-cols-[minmax(0,527px)_minmax(0,593px)] lg:justify-between lg:gap-x-16 lg:px-[60px] lg:py-24">
           <div className="space-y-8 text-[30px] leading-[40px] font-bold tracking-[-0.9px]">

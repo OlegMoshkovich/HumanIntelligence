@@ -2,57 +2,105 @@
 
 import { useState } from "react";
 
-const participants = [
+const participants: {
+  name: string;
+  role: string;
+  link: { label: string; href: string };
+  image: string;
+  imageClass?: string;
+}[] = [
   {
     name: "Yasin Abbasi Yadkori",
-    role: "The AIR Lab, formerly DeepMind",
-    link: "Google Scholar",
+    role: "Researcher, The AIR Lab; ex-DeepMind",
+    link: {
+      label: "Google Scholar",
+      href: "https://scholar.google.com/citations?user=-D0EgMIAAAAJ&hl=en",
+    },
     image: "/images/participant-yasin.jpg",
-    imageClass: "absolute inset-0 h-full w-full object-cover",
   },
   {
     name: "Michal Valko",
-    role: "The AIR Lab",
-    link: "Website",
+    role: "Researcher, Isara Labs",
+    link: {
+      label: "Github",
+      href: "https://misovalko.github.io/",
+    },
     image: "/images/participant-michal.jpg",
-    imageClass: "absolute inset-0 h-full w-full object-cover",
   },
   {
     name: "Eric Moulines",
-    role: "Dean, Computing and Mathematical Sciences | Professor, Machine Learning at MBZUAI",
-    link: "Google Scholar",
+    role: "Professor, Dean, Computing and Mathematical Sciences, MBZUAI",
+    link: {
+      label: "Google Scholar",
+      href: "https://scholar.google.com/citations?user=_XE1LvQAAAAJ&hl=fr",
+    },
     image: "/images/participant-eric.jpg",
-    imageClass:
-      "absolute top-0 left-[-17.04%] h-full w-[134.07%] max-w-none",
   },
   {
     name: "Anna Aristova",
-    role: "Artist, Royal College of Art",
-    link: "Website",
+    role: "Artist and Multidisciplinary Educator",
+    link: {
+      label: "Website",
+      href: "https://www.aristovadesign.com/",
+    },
     image: "/images/participant-anna.jpg",
-    imageClass:
-      "absolute top-[-0.64%] left-[-52.06%] h-[101.27%] w-[152%] max-w-none",
+  },
+  {
+    name: "Selçuk Artut",
+    role: "Artist and Researcher",
+    link: {
+      label: "Website",
+      href: "https://selcukartut.com",
+    },
+    image: "/images/participant-selcuk.jpg",
   },
   {
     name: "Sattar Vakili",
-    role: "Associate Professor, University College London",
-    link: "Github",
+    role: "Professor, University College London",
+    link: {
+      label: "Github",
+      href: "https://sattar-vakili.github.io",
+    },
     image: "/images/participant-sattar.jpg",
-    imageClass: "absolute inset-0 h-full w-full object-contain",
+  },
+  {
+    name: "Dilan Bozer",
+    role: "Artist",
+    link: {
+      label: "Instagram",
+      href: "https://www.instagram.com/dilanbozer/",
+    },
+    image: "/images/participant-dilan.jpg",
+    imageClass: "object-[center_18%]",
   },
   {
     name: "Tolga Birdal",
-    role: "Assistant Professor at Imperial College London",
-    link: "Github",
+    role: "Professor, Imperial College London",
+    link: {
+      label: "Github",
+      href: "https://tolgabirdal.github.io/",
+    },
     image: "/images/participant-tolga.jpg",
-    imageClass: "absolute inset-0 h-full w-full object-cover",
+    imageClass: "object-[center_22%]",
   },
   {
     name: "Oleg Moshkovich",
-    role: "The AIR Lab",
-    link: "Website",
+    role: "AI Engineer, The AIR Lab",
+    link: {
+      label: "Github",
+      href: "https://github.com/OlegMoshkovich",
+    },
     image: "/images/participant-oleg.jpg",
-    imageClass: "absolute inset-0 h-full w-full object-cover",
+  },
+  {
+    name: "Aysegul Akyuz",
+    role: "Somatic & Movement Artist",
+    link: {
+      label: "Instagram",
+      href: "https://www.instagram.com/aysegulakyuzz",
+    },
+    image: "/images/participant-aysegul.jpg",
+    imageClass: "object-[center_30%]",
   },
 ];
 
@@ -71,20 +119,24 @@ export function Participants() {
               <img
                 src={person.image}
                 alt={person.name}
-                className={person.imageClass}
+                className={`absolute inset-0 h-full w-full object-cover ${person.imageClass ?? ""}`}
               />
             </div>
             <h3 className="mt-4 text-[20px] leading-normal font-bold">
               {person.name}
             </h3>
-            <p className="text-[14px] leading-normal font-light italic">
-              {person.role}
-            </p>
+            {person.role ? (
+              <p className="text-[14px] leading-normal font-light italic">
+                {person.role}
+              </p>
+            ) : null}
             <a
-              href="#participants"
+              href={person.link.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[14px] leading-normal font-light text-accent italic underline"
             >
-              {person.link}
+              {person.link.label}
             </a>
           </li>
         ))}

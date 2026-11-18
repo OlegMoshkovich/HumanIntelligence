@@ -7,8 +7,7 @@ import { useEffect, useState } from "react";
 const editions = [
   { label: "1 | Istanbul, 2026", href: "/istanbul" },
   { label: "2 | London, 2027" },
-  { label: "3 | Brussels, 2027" },
-  { label: "4| Osaka, TBD" },
+  { label: "3 | Osaka, TBD" },
 ];
 
 export function SiteHeader({
