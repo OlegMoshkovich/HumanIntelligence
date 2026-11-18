@@ -12,6 +12,7 @@ const socialDescription =
   "Human x Intelligence is an international symposium amongst artists, thinkers, scientists, and technologists, and the public to explore the changing role of the human in an increasingly intelligent world.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://human-x-intelligence.com"),
   title: {
     default: "Human x Intelligence",
     template: "%s",
