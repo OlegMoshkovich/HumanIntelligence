@@ -37,24 +37,29 @@ export const metadata: Metadata = {
 const formats = [
   {
     title: "Intimate Dialogues and Q&A Sessions",
-    body: "An intimate setting for dialogue, questions and conversations over tea, creating a warm and welcoming atmosphere through candlelight, shared rituals and meaningful exchanges.",
+    paragraphs: [
+      "An intimate setting for dialogue, questions and conversations over tea, creating a warm and welcoming atmosphere through candlelight, shared rituals and meaningful exchanges.",
+    ],
   },
   {
     title: "Circular Discussions",
-    body: "Open discussions arranged in circles, where the traditional boundaries between speakers and audiences are dissolved. Members of the public are invited to become active participants in the conversation rather than passive listeners.",
-  },
-  {
-    title: "Round-Table Conversations",
-    body: "An intimate setting for dialogue, questions and conversations over tea, creating a warm and welcoming atmosphere through candlelight, shared rituals and meaningful exchanges.",
+    paragraphs: [
+      "Open discussions arranged in circles, where the traditional boundaries between speakers and audiences are dissolved. Members of the public are invited to become active participants in the conversation rather than passive listeners. Focused conversations to exchange perspectives, challenge assumptions and explore shared questions across disciplines.",
+    ],
   },
   {
     title: "Somatic and Body-Oriented Workshops",
-    body: "Experiential workshops and collective experiments exploring embodied knowledge, perception, movement and the relationship between body and mind. Before engaging in formal discussions about artificial intelligence, we will come together through shared bodily experiences, creating space for human connection, awareness and collective exploration.",
+    paragraphs: [
+      "As we explore intelligence in its many forms, our innate and complex human technologies will form a fundamental part of these conversations. Experiential workshops and collective experiments exploring embodied knowledge, perception, movement, and the reciprocal relationship between body and mind will inform how we approach the formation of synthetic realities.",
+      "Before engaging in formal discussions about artificial intelligence, we will cultivate embodied awareness, expand our sense of being, and attune ourselves to the sensibilities of human connection.",
+    ],
   },
   {
-    title: "Shared Dinners & Culinary Experiences",
-    body: "Gathering around a large communal table, we will explore food as both a cultural experience and a fundamental form of human connection. Through the richness of Turkish cuisine, shared meals will become an opportunity to experience hospitality, exchange stories and connect beyond professional and disciplinary boundaries.",
-    compact: true,
+    title: "Shared Dinners and Culinary Experiences – Çilingir Sofrası (Locksmith's Table)",
+    paragraphs: [
+      "Gathering around a large communal table, we will explore food as both a cultural experience and a fundamental form of human connection. Understanding food as a cultural archive and generational knowledge, shared meals will become an opportunity to experience hospitality, exchange stories and connect beyond professional and disciplinary boundaries.",
+      "These gatherings invite us to consider how we experience the world through our bodies and senses, and how food, taste, touch, conversation and shared rituals shape our relationships with one another.",
+    ],
   },
 ];
 
@@ -182,7 +187,7 @@ export default function HomePage() {
             </div>
             <div className="text-[20px] leading-normal">
               <p>
-                This three-day symposium taking place from 16–18 December in
+                This four-day symposium taking place from 15–18 December in
                 Istanbul, hosted by Pasaj Zivo will explore the future of
                 creativity in the age of artificial intelligence.
               </p>
@@ -295,15 +300,11 @@ export default function HomePage() {
               <h3 className="text-[30px] leading-[44px] font-bold tracking-[-0.9px]">
                 {format.title}
               </h3>
-              <p
-                className={`mt-4 leading-normal tracking-[-0.6px] ${
-                  format.compact
-                    ? "text-[16px] tracking-[-0.48px]"
-                    : "text-[20px]"
-                }`}
-              >
-                {format.body}
-              </p>
+              <div className="mt-4 space-y-4 text-[20px] leading-normal tracking-[-0.6px]">
+                {format.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
             </article>
           ))}
         </div>

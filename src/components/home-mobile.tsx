@@ -40,9 +40,8 @@ const events = [
 const formats = [
   "Intimate Dialogues and Q&A Sessions",
   "Circular Discussions",
-  "Round-Table Dialogs",
   "Somatic and Body-Oriented Workshops",
-  "Shared Culinary Experiences",
+  "Shared Dinners and Culinary Experiences – Çilingir Sofrası (Locksmith's Table)",
 ];
 
 export function HomeMobile() {
@@ -127,7 +126,7 @@ export function HomeMobile() {
         </p>
         <div className="mt-6 space-y-6 text-[16px] leading-[26px]">
           <p>
-            This three-day symposium taking place from 16–18 December in
+            This four-day symposium taking place from 15–18 December in
             Istanbul, hosted by Pasaj Zivo will explore the future of creativity
             in the age of artificial intelligence.
           </p>
