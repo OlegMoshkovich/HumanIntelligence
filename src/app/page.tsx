@@ -180,7 +180,7 @@ export default function HomePage() {
               </p>
               <button
                 type="button"
-                className="mt-8 flex h-[72px] w-full items-center justify-center rounded-full bg-white px-8 text-[24px] font-medium text-black"
+                className="mt-8 inline-flex h-[46px] items-center justify-center rounded-[20px] bg-white px-7 text-[16px] font-medium text-black"
               >
                 Register your interest
               </button>

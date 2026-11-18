@@ -54,7 +54,7 @@ export function Programme() {
       </div>
 
       <div>
-        <h3 className="text-[30px] leading-[66px] font-bold tracking-[-0.9px]">
+        <h3 className="text-[22px] leading-[30px] font-bold tracking-[-0.66px] lg:text-[30px] lg:leading-[66px] lg:tracking-[-0.9px]">
           {days[selected].title}
         </h3>
 

@@ -53,21 +53,23 @@ export default function IstanbulPage() {
       <div className="mx-auto max-w-[1440px]">
         <SiteHeader activeIndex={0} />
 
-        <section className="px-[61px] pt-16">
-          <p className="text-[16px] leading-[44px] font-medium">EDITION 1</p>
-          <h1 className="max-w-[926px] text-[40px] leading-[1.15] font-bold tracking-[-1.2px] lg:text-[48px] lg:leading-[66px] lg:tracking-[-1.44px]">
+        <section className="px-5 pt-10 lg:px-[61px] lg:pt-16">
+          <p className="text-[14px] leading-[32px] font-medium lg:text-[16px] lg:leading-[44px]">
+            EDITION 1
+          </p>
+          <h1 className="max-w-[926px] text-[24px] leading-[32px] font-bold tracking-[-0.72px] lg:text-[48px] lg:leading-[66px] lg:tracking-[-1.44px]">
             Intelligence Beyond Mind — Creativity, Matter & Machine
           </h1>
 
-          <div className="mt-8 grid gap-10 lg:mt-6 lg:grid-cols-[minmax(0,560px)_minmax(0,644px)] lg:justify-between lg:gap-x-[110px]">
-            <p className="text-[30px] leading-[44px] font-bold tracking-[-0.9px] text-accent">
+          <div className="mt-6 grid gap-8 lg:mt-6 lg:grid-cols-[minmax(0,560px)_minmax(0,644px)] lg:justify-between lg:gap-x-[110px]">
+            <p className="text-[20px] leading-[28px] font-bold tracking-[-0.6px] text-accent lg:text-[30px] lg:leading-[44px] lg:tracking-[-0.9px]">
               December 15–18, 2026
               <br />
               Istanbul, Turkey
               <br />
               Hosted by Pasaj Zivo
             </p>
-            <div className="max-w-[644px] space-y-10 text-[30px] leading-[40px] font-medium tracking-[-0.9px] text-accent">
+            <div className="max-w-[644px] space-y-6 text-[18px] leading-[26px] font-medium tracking-[-0.54px] text-accent lg:space-y-10 lg:text-[30px] lg:leading-[40px] lg:tracking-[-0.9px]">
               <p>What is the future of creativity in the age of AI?</p>
               <p>
                 What are the roles of humans and machines in the creative
@@ -81,7 +83,7 @@ export default function IstanbulPage() {
             </div>
           </div>
 
-          <div className="mt-16 max-w-[981px] space-y-8 text-[24px] leading-[32px] lg:mt-20 lg:ml-[174px]">
+          <div className="mt-10 max-w-[981px] space-y-6 text-[16px] leading-[26px] lg:mt-20 lg:ml-[174px] lg:space-y-8 lg:text-[24px] lg:leading-[32px]">
             <p>
               Our intention is to approach creativity from multiple perspectives
               bringing together scientists, artists, thinkers and technologists
@@ -117,8 +119,8 @@ export default function IstanbulPage() {
           </div>
         </section>
 
-        <section id="venue" className="px-[61px] pt-16">
-          <h2 className="text-[40px] leading-[1.15] font-bold tracking-[-1.2px] lg:text-[48px] lg:leading-[66px] lg:tracking-[-1.44px]">
+        <section id="venue" className="px-5 pt-12 lg:px-[61px] lg:pt-16">
+          <h2 className="text-[28px] leading-[34px] font-bold tracking-[-0.84px] lg:text-[48px] lg:leading-[66px] lg:tracking-[-1.44px]">
             Our main venue
           </h2>
           <div className="mt-8 grid gap-2 lg:grid-cols-[937fr_433fr]">
@@ -142,8 +144,8 @@ export default function IstanbulPage() {
           </p>
         </section>
 
-        <section id="participants" className="px-[61px] pt-16 pb-20">
-          <h2 className="mb-8 text-[40px] leading-[1.15] font-bold tracking-[-1.2px] lg:text-[48px] lg:leading-[66px] lg:tracking-[-1.44px]">
+        <section id="participants" className="px-5 pt-12 pb-16 lg:px-[61px] lg:pt-16 lg:pb-20">
+          <h2 className="mb-8 text-[28px] leading-[34px] font-bold tracking-[-0.84px] lg:text-[48px] lg:leading-[66px] lg:tracking-[-1.44px]">
             Participants
           </h2>
           <Participants />
@@ -151,25 +153,25 @@ export default function IstanbulPage() {
       </div>
 
       <section id="programme" className="bg-white">
-        <div className="mx-auto max-w-[1440px] px-[61px] py-16 lg:py-20">
-          <h2 className="mb-8 text-[40px] leading-[1.15] font-bold tracking-[-1.2px] lg:mb-4 lg:text-[48px] lg:leading-[66px] lg:tracking-[-1.44px]">
+        <div className="mx-auto max-w-[1440px] px-5 py-12 lg:px-[61px] lg:py-20">
+          <h2 className="mb-6 text-[28px] leading-[34px] font-bold tracking-[-0.84px] lg:mb-4 lg:text-[48px] lg:leading-[66px] lg:tracking-[-1.44px]">
             Programme
           </h2>
           <Programme />
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1440px] px-[57px] pt-20 pb-16">
-        <h2 className="text-[40px] leading-[56px] font-bold tracking-[-1.2px] lg:text-[48px] lg:tracking-[-1.44px]">
+      <div className="mx-auto max-w-[1440px] px-5 pt-12 pb-12 lg:px-[57px] lg:pt-20 lg:pb-16">
+        <h2 className="text-[28px] leading-[34px] font-bold tracking-[-0.84px] lg:text-[48px] lg:leading-[56px] lg:tracking-[-1.44px]">
           Formats and Experiences
         </h2>
         <div className="mt-10 grid gap-x-12 gap-y-16 min-[800px]:grid-cols-2 lg:grid-cols-3">
           {formats.map((format) => (
             <article key={format.title}>
-              <h3 className="text-[30px] leading-[44px] font-bold tracking-[-0.9px]">
+              <h3 className="text-[22px] leading-[28px] font-bold tracking-[-0.66px] lg:text-[30px] lg:leading-[44px] lg:tracking-[-0.9px]">
                 {format.title}
               </h3>
-              <div className="mt-4 space-y-4 text-[20px] leading-normal tracking-[-0.6px]">
+              <div className="mt-4 space-y-4 text-[16px] leading-normal tracking-[-0.48px] lg:text-[20px] lg:tracking-[-0.6px]">
                 {format.paragraphs.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
@@ -179,11 +181,11 @@ export default function IstanbulPage() {
         </div>
       </div>
 
-      <section className="mx-auto max-w-[1440px] px-[57px] pb-28">
-        <h2 className="max-w-[981px] text-[40px] leading-[56px] font-bold tracking-[-1.2px] lg:text-[48px] lg:tracking-[-1.44px]">
+      <section className="mx-auto max-w-[1440px] px-5 pb-16 lg:px-[57px] lg:pb-28">
+        <h2 className="max-w-[981px] text-[28px] leading-[34px] font-bold tracking-[-0.84px] lg:text-[48px] lg:leading-[56px] lg:tracking-[-1.44px]">
           Beyond the Conventional Conference
         </h2>
-        <div className="mt-10 max-w-[981px] space-y-8 text-[24px] leading-[32px]">
+        <div className="mt-6 max-w-[981px] space-y-6 text-[16px] leading-[26px] lg:mt-10 lg:space-y-8 lg:text-[24px] lg:leading-[32px]">
           {beyond.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
