@@ -60,8 +60,29 @@ export function Programme() {
 
         {selected === 0 ? (
           <div className="mt-2">
-            <ScheduleRow time="10:00–10:30" action={<RsvpButton />} />
-            <ScheduleRow time="10:30–12:30" />
+            <ScheduleRow
+              time="10:00–10:30"
+              title="Opening Session"
+              note="Open to public"
+              action={<RsvpButton />}
+            >
+              <p>
+                A collective opening session bringing all participants together
+                through sensory experience, with a focus on connection, place,
+                history and the cultural roots of Istanbul.
+              </p>
+            </ScheduleRow>
+            <ScheduleRow
+              time="10:30–12:30"
+              title="Research and Working Session"
+              note="By invitation only"
+            >
+              <p>
+                Closed working sessions designed to encourage focused exchange,
+                collaborative research and experimentation between participating
+                scientists and creative practitioners.
+              </p>
+            </ScheduleRow>
             <ScheduleRow time="12:30–14:00" title="Lunch Break" />
             <ScheduleRow
               time="14:00–17:00"
@@ -201,8 +222,8 @@ function ScheduleRow({
   children?: ReactNode;
 }) {
   return (
-    <div className="grid gap-4 border-b border-black py-5 lg:grid-cols-[92px_191px_minmax(0,1fr)_200px] lg:gap-x-5">
-      <p className="text-[16px] leading-[44px] font-bold tracking-[-0.48px]">
+    <div className="grid items-start gap-4 border-b border-black py-5 lg:grid-cols-[auto_191px_minmax(220px,417px)_200px] lg:justify-start lg:gap-x-5">
+      <p className="text-[16px] leading-normal font-bold tracking-[-0.48px] whitespace-nowrap">
         {time}
       </p>
       {title ? (

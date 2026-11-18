@@ -33,12 +33,33 @@ const participants = [
     imageClass:
       "absolute top-[-0.64%] left-[-52.06%] h-[101.27%] w-[152%] max-w-none",
   },
+  {
+    name: "Sattar Vakili",
+    role: "Associate Professor, University College London",
+    link: "Github",
+    image: "/images/participant-sattar.jpg",
+    imageClass: "absolute inset-0 h-full w-full object-contain",
+  },
+  {
+    name: "Tolga Birdal",
+    role: "Assistant Professor at Imperial College London",
+    link: "Github",
+    image: "/images/participant-tolga.jpg",
+    imageClass: "absolute inset-0 h-full w-full object-cover",
+  },
+  {
+    name: "Oleg Moshkovich",
+    role: "The AIR Lab",
+    link: "Website",
+    image: "/images/participant-oleg.jpg",
+    imageClass: "absolute inset-0 h-full w-full object-cover",
+  },
 ];
 
 export function Participants() {
   const [start, setStart] = useState(0);
-  const visible = participants.map(
-    (_, index) => participants[(start + index) % participants.length],
+  const visible = [0, 1, 2, 3].map(
+    (offset) => participants[(start + offset) % participants.length],
   );
 
   return (
@@ -72,7 +93,7 @@ export function Participants() {
         type="button"
         aria-label="Next participants"
         onClick={() => setStart((value) => (value + 1) % participants.length)}
-        className="absolute top-[38%] -right-2 hidden lg:block"
+        className="absolute top-[38%] -right-2"
       >
         <img
           src="/images/arrow.svg"

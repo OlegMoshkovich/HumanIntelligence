@@ -134,30 +134,25 @@ export default function HomePage() {
             Intelligence Beyond Mind — Creativity, Matter & Machine
           </h2>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-[240px_minmax(0,814px)] lg:justify-between">
-            <div>
-              <p className="text-[30px] leading-[44px] font-medium">
+          <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(280px,420px)_minmax(0,814px)] lg:justify-between">
+            <div className="w-fit justify-self-start">
+              <p className="text-[40px] leading-[48px] font-medium tracking-[-0.8px]">
                 Istanbul, Turkey
                 <br />
-                December 15–18, 2026
+                December 15–18,
+                <br />
+                2026
               </p>
-              <p className="mt-6 max-w-[282px] text-[16px] leading-normal italic">
-                Organized & curated by Anna Aristova & Dilan Bozer
+              <p className="mt-8 text-[18px] leading-[28px] italic">
+                Organized & curated by Anna
+                <br />
+                Aristova & Dilan Bozer
               </p>
               <button
                 type="button"
-                className="relative mt-8 inline-flex h-[51px] w-[246px] items-center justify-center"
+                className="mt-8 flex h-[72px] w-full items-center justify-center rounded-full bg-white px-8 text-[24px] font-medium text-black"
               >
-                <img
-                  src="/images/home-register.svg"
-                  alt=""
-                  width={246}
-                  height={51}
-                  className="absolute top-0 left-0"
-                />
-                <span className="relative text-[20px] font-medium text-black">
-                  Register your interest
-                </span>
+                Register your interest
               </button>
             </div>
             <div className="text-[20px] leading-normal">

@@ -76,7 +76,7 @@ export function SiteHeader({
             Editions
           </button>
           {open ? (
-            <div className="absolute top-8 right-0 z-20 w-max rounded-[11px] bg-white px-5 py-4 text-[16px] font-medium leading-[1.96] lg:top-[30px] lg:left-1/2 lg:w-[190px] lg:-translate-x-1/2 lg:px-7 lg:py-[18px]">
+            <div className="absolute top-8 right-0 z-20 w-max rounded-[11px] bg-white px-5 py-4 text-[16px] font-medium leading-[1.96] lg:top-[30px] lg:w-[190px] lg:px-7 lg:py-[18px]">
               {editions.map((edition, index) => {
                 const className = `block w-full text-left ${
                   index === selected ? "underline" : ""
