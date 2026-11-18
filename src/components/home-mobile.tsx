@@ -1,39 +1,91 @@
 import Link from "next/link";
 import { HomeGallery } from "@/components/home-gallery";
 
-const people = [
+const people: {
+  name: string;
+  role: string;
+  image: string;
+  imageClass?: string;
+}[] = [
   {
     name: "Yasin Abbasi Yadkori",
     role: "Researcher, The AIR Lab; ex-DeepMind",
-    image: "/images/mobile-yasin.jpg",
-    imageClass: "absolute inset-0 h-full w-full object-cover",
+    image: "/images/participant-yasin.jpg",
+  },
+  {
+    name: "Michal Valko",
+    role: "Researcher, Isara Labs",
+    image: "/images/participant-michal.jpg",
+  },
+  {
+    name: "Eric Moulines",
+    role: "Professor, Dean, Computing and Mathematical Sciences, MBZUAI",
+    image: "/images/participant-eric.jpg",
   },
   {
     name: "Anna Aristova",
     role: "Artist and Multidisciplinary Educator",
-    image: "/images/mobile-anna.jpg",
-    imageClass: "absolute inset-0 h-full w-full object-cover",
+    image: "/images/participant-anna.jpg",
+  },
+  {
+    name: "Selçuk Artut",
+    role: "Artist and Researcher",
+    image: "/images/participant-selcuk.jpg",
   },
   {
     name: "Sattar Vakili",
     role: "Professor, University College London",
-    image: "/images/mobile-sattar.jpg",
-    imageClass: "absolute inset-0 h-full w-full object-cover",
+    image: "/images/participant-sattar.jpg",
+  },
+  {
+    name: "Dilan Bozer",
+    role: "Artist",
+    image: "/images/participant-dilan.jpg",
+    imageClass: "object-[center_18%]",
+  },
+  {
+    name: "Tolga Birdal",
+    role: "Professor, Imperial College London",
+    image: "/images/participant-tolga.jpg",
+    imageClass: "object-[center_22%]",
+  },
+  {
+    name: "Oleg Moshkovich",
+    role: "AI Engineer, The AIR Lab",
+    image: "/images/participant-oleg.jpg",
+  },
+  {
+    name: "Aysegul Akyuz",
+    role: "Somatic & Movement Artist",
+    image: "/images/participant-aysegul.jpg",
+    imageClass: "object-[center_30%]",
   },
 ];
 
 const events = [
   {
-    when: "December 15, 11:00",
-    title: "Event Title",
-    body: "One-sentence blurb about what will be going on and what kinds of participants it’ll include, but in general terms.",
-    note: "By invitation only",
+    when: "15 December",
+    title: "Symposium and Workshops",
+    body: "A collective opening session bringing all participants together through sensory experience, with a focus on connection, place, history and the cultural roots of Istanbul. The afternoon is a public programme of interdisciplinary workshops, followed by Muhabbet and dinner.",
+    note: "ZIVO",
   },
   {
-    when: "December 15, 11:00",
-    title: "Event Title",
-    body: "One-sentence blurb about what will be going on and what kinds of participants it’ll include, but in general terms.",
-    note: "By invitation only",
+    when: "16 December",
+    title: "Symposium and Workshops",
+    body: "Private research sessions and a public creative workshop, with research presentations, collective experimentation, Muhabbet, and dinner.",
+    note: "ZIVO",
+  },
+  {
+    when: "17 December",
+    title: "Research, Exchange and Gathering",
+    body: "Closed working sessions focused on AI, mathematics and interdisciplinary research, followed by music, food and conversation for participants and invited guests.",
+    note: "Private programme — by invitation",
+  },
+  {
+    when: "18 December",
+    title: "Cultural Experiences and Informal Exchange",
+    body: "Morning coffee and conversation, a shared exploration of historic Istanbul, a traditional hammam at Kılıç Ali Paşa, and a closing dinner at Cavit.",
+    note: "Private programme — by invitation",
   },
 ];
 
@@ -178,7 +230,7 @@ export function HomeMobile() {
                 <img
                   src={person.image}
                   alt={person.name}
-                  className={person.imageClass}
+                  className={`absolute inset-0 h-full w-full object-cover ${person.imageClass ?? ""}`}
                 />
               </div>
               <p className="mt-2 text-[12px] leading-normal font-bold">
@@ -198,8 +250,8 @@ export function HomeMobile() {
           {events.map((event, index) => (
             <li
               key={`${event.title}-${index}`}
-              className={`w-[280px] shrink-0 ${
-                index > 0 ? "border-l border-white pl-5" : "pr-5"
+              className={`w-[280px] shrink-0 pr-5 ${
+                index > 0 ? "border-l border-white pl-5" : ""
               }`}
             >
               <p className="text-[14px] leading-[28px] font-bold">{event.when}</p>
