@@ -91,9 +91,24 @@ const events = [
 ];
 
 const formats = [
-  "Intimate Dialogues and Q&A Sessions",
-  "Somatic and Body-Oriented Workshops",
-  "Shared Dinners and Culinary Experiences by Çilingir Sofrası (Locksmith's Table)",
+  {
+    title: "Intimate Dialogues and Q&A Sessions",
+    paragraphs: [
+      "Conversations over tea in a warm, intimate atmosphere shaped by candlelight and shared rituals. An open setting where the public becomes an active part of the dialogue, exchanging perspectives and exploring questions across disciplines.",
+    ],
+  },
+  {
+    title: "Somatic and Body-Oriented Workshops",
+    paragraphs: [
+      "Experiential workshops exploring embodied knowledge, perception, movement and the relationship between body and mind.",
+    ],
+  },
+  {
+    title: "Shared Dinners and Culinary Experiences by Çilingir Sofrası (Locksmith's Table)",
+    paragraphs: [
+      "Gathering around a communal table, we will explore food as a cultural archive, a form of generational knowledge and a fundamental expression of human connection.",
+    ],
+  },
 ];
 
 export function HomeMobile() {
@@ -249,14 +264,33 @@ export function HomeMobile() {
       </section>
 
       <section className="px-5 pt-8 pb-16">
-        <p className="text-[12px] leading-[44px] font-medium">WHAT TO EXPECT</p>
-        <ul className="text-[20px] leading-[45px] font-light">
-          {formats.map((format, index) => (
-            <li key={format} className={index === 0 ? "text-accent" : undefined}>
-              {format}
-            </li>
+        <div className="flex items-center">
+          <img
+            src="/images/home-mark.svg"
+            alt=""
+            width={55}
+            height={20}
+            className="mr-3 -ml-5"
+          />
+          <p className="text-[14px] leading-[44px] font-medium">WHAT TO EXPECT</p>
+        </div>
+        <h2 className="text-[28px] leading-[34px] font-bold tracking-[-0.84px]">
+          Formats and Experiences
+        </h2>
+        <div className="mt-8 grid gap-10">
+          {formats.map((format) => (
+            <article key={format.title}>
+              <h3 className="text-[22px] leading-[28px] font-bold tracking-[-0.66px]">
+                {format.title}
+              </h3>
+              <div className="mt-3 space-y-4 text-[16px] leading-[26px]">
+                {format.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </article>
           ))}
-        </ul>
+        </div>
       </section>
     </div>
   );
