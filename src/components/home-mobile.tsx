@@ -264,16 +264,7 @@ export function HomeMobile() {
       </section>
 
       <section className="px-5 pt-8 pb-16">
-        <div className="flex items-center">
-          <img
-            src="/images/home-mark.svg"
-            alt=""
-            width={55}
-            height={20}
-            className="mr-3 -ml-5"
-          />
-          <p className="text-[14px] leading-[44px] font-medium">WHAT TO EXPECT</p>
-        </div>
+        <p className="text-[14px] leading-[44px] font-medium">WHAT TO EXPECT</p>
         <h2 className="text-[28px] leading-[34px] font-bold tracking-[-0.84px]">
           Formats and Experiences
         </h2>
