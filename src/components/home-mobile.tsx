@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { VenueCarousel } from "@/components/venue-carousel";
 import { HomeGallery } from "@/components/home-gallery";
+import { SocialLinks } from "@/components/social-links";
 
 const people: {
   name: string;
@@ -283,6 +284,28 @@ export function HomeMobile() {
           ))}
         </div>
       </section>
+
+      <footer className="bg-footer text-black">
+        <div className="flex flex-col gap-8 px-[45px] py-12">
+          <img
+            src="/images/home-logo-footer.svg"
+            alt="Human x Intelligence"
+            width={138}
+            height={47}
+          />
+          <p className="max-w-[422px] text-[16px] leading-[20px] font-medium">
+            A workshop amongst artists, thinkers, scientists, and technologists,
+            and the public to explore the changing role of the human in an
+            increasingly intelligent world.
+          </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <SocialLinks />
+            <p className="text-[16px] leading-normal font-medium">
+              Copyright © 2026. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
