@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
+import { SocialLinks } from "@/components/social-links";
 
 export const metadata: Metadata = {
   title: "London 2027 — Human x Intelligence",
@@ -71,9 +72,12 @@ export default function LondonPage() {
             and the public to explore the changing role of the human in an
             increasingly intelligent world.
           </p>
-          <p className="text-[16px] leading-normal font-medium">
-            Copyright © 2026. All rights reserved.
-          </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <SocialLinks />
+            <p className="text-[16px] leading-normal font-medium">
+              Copyright © 2026. All rights reserved.
+            </p>
+          </div>
         </div>
       </footer>
     </div>

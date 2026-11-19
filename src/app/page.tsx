@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { EditionPanel } from "@/components/edition-panel";
 import { HomeGallery } from "@/components/home-gallery";
+import { SocialLinks } from "@/components/social-links";
 import { HomeMobile } from "@/components/home-mobile";
+import { RegisterInterestButton } from "@/components/register-interest";
 import { SiteHeader } from "@/components/site-header";
 
 const socialTitle = "A global gathering of leading scientists and creatives.";
@@ -140,12 +142,9 @@ export default function HomePage() {
                 <br />
                 Aristova & Dilan Bozer
               </p>
-              <button
-                type="button"
-                className="mt-8 inline-flex h-[46px] items-center justify-center rounded-[20px] bg-white px-7 text-[16px] font-medium text-black"
-              >
+              <RegisterInterestButton className="mt-8 inline-flex h-[46px] items-center justify-center rounded-[20px] bg-white px-7 text-[16px] font-medium text-black">
                 Register your interest
-              </button>
+              </RegisterInterestButton>
             </div>
             <div className="text-[20px] leading-normal">
               <p>
@@ -223,9 +222,12 @@ export default function HomePage() {
             and the public to explore the changing role of the human in an
             increasingly intelligent world.
           </p>
-          <p className="text-[16px] leading-normal font-medium">
-            Copyright © 2026. All rights reserved.
-          </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+            <SocialLinks />
+            <p className="text-[16px] leading-normal font-medium">
+              Copyright © 2026. All rights reserved.
+            </p>
+          </div>
         </div>
       </footer>
     </div>

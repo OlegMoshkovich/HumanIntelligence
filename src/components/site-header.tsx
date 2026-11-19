@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { RegisterInterestButton } from "@/components/register-interest";
 
 const editions = [
   { number: "1", place: "Istanbul, 2026", href: "/istanbul" },
@@ -125,15 +126,15 @@ export function SiteHeader({
                   </button>
                 );
               })}
-              <span className="mt-3 flex h-[46px] w-full items-center justify-center rounded-full bg-black px-6 text-[16px] leading-none font-medium whitespace-nowrap text-white lg:hidden">
+              <RegisterInterestButton className="mt-3 flex h-[46px] w-full items-center justify-center rounded-full bg-black px-6 text-[16px] leading-none font-medium whitespace-nowrap text-white lg:hidden">
                 Register your interest
-              </span>
+              </RegisterInterestButton>
             </div>
           ) : null}
         </div>
-        <span className="hidden h-[46px] shrink-0 cursor-default items-center justify-center rounded-[20px] bg-black px-7 text-[16px] font-medium text-white lg:inline-flex">
+        <RegisterInterestButton className="hidden h-[46px] shrink-0 items-center justify-center rounded-[20px] bg-black px-7 text-[16px] font-medium text-white lg:inline-flex">
           Register your interest
-        </span>
+        </RegisterInterestButton>
       </div>
     </header>
   );
