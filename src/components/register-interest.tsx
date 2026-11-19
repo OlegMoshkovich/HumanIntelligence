@@ -70,8 +70,16 @@ function RegisterDialog({ onClose }: { onClose: () => void }) {
           <h2 id={titleId} className="text-[24px] leading-[30px] font-bold tracking-[-0.72px]">
             Register your interest
           </h2>
-          <button type="button" className="text-[16px] leading-none" onClick={onClose} aria-label="Close">
-            ×
+          <button
+            type="button"
+            className="flex h-[18px] w-7 shrink-0 items-center justify-center"
+            onClick={onClose}
+            aria-label="Close"
+          >
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <line x1="2" y1="2" x2="16" y2="16" stroke="black" strokeWidth="2" />
+              <line x1="16" y1="2" x2="2" y2="16" stroke="black" strokeWidth="2" />
+            </svg>
           </button>
         </div>
         {status === "sent" ? (
