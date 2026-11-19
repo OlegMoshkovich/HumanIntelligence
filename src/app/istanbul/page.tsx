@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Participants } from "@/components/participants";
 import { Programme } from "@/components/programme";
 import { SiteHeader } from "@/components/site-header";
+import { VenueCarousel } from "@/components/venue-carousel";
 
 export const metadata: Metadata = {
   title: "Istanbul 2026 — Human x Intelligence",
@@ -13,27 +14,19 @@ const formats = [
   {
     title: "Intimate Dialogues and Q&A Sessions",
     paragraphs: [
-      "An intimate setting for dialogue, questions and conversations over tea, creating a warm and welcoming atmosphere through candlelight, shared rituals and meaningful exchanges.",
-    ],
-  },
-  {
-    title: "Circular Discussions",
-    paragraphs: [
-      "Open discussions arranged in circles, where the traditional boundaries between speakers and audiences are dissolved. Members of the public are invited to become active participants in the conversation rather than passive listeners. Focused conversations to exchange perspectives, challenge assumptions and explore shared questions across disciplines.",
+      "Conversations over tea in a warm, intimate atmosphere shaped by candlelight and shared rituals. An open setting where the public becomes an active part of the dialogue, exchanging perspectives and exploring questions across disciplines.",
     ],
   },
   {
     title: "Somatic and Body-Oriented Workshops",
     paragraphs: [
-      "As we explore intelligence in its many forms, our innate and complex human technologies will form a fundamental part of these conversations. Experiential workshops and collective experiments exploring embodied knowledge, perception, movement, and the reciprocal relationship between body and mind will inform how we approach the formation of synthetic realities.",
-      "Before engaging in formal discussions about artificial intelligence, we will cultivate embodied awareness, expand our sense of being, and attune ourselves to the sensibilities of human connection.",
+      "Experiential workshops exploring embodied knowledge, perception, movement and the relationship between body and mind.",
     ],
   },
   {
-    title: "Shared Dinners and Culinary Experiences – Çilingir Sofrası (Locksmith's Table)",
+    title: "Shared Dinners and Culinary Experiences by Çilingir Sofrası (Locksmith's Table)",
     paragraphs: [
-      "Gathering around a large communal table, we will explore food as both a cultural experience and a fundamental form of human connection. Understanding food as a cultural archive and generational knowledge, shared meals will become an opportunity to experience hospitality, exchange stories and connect beyond professional and disciplinary boundaries.",
-      "These gatherings invite us to consider how we experience the world through our bodies and senses, and how food, taste, touch, conversation and shared rituals shape our relationships with one another.",
+      "Gathering around a communal table, we will explore food as a cultural archive, a form of generational knowledge and a fundamental expression of human connection.",
     ],
   },
 ];
@@ -63,11 +56,11 @@ export default function IstanbulPage() {
 
           <div className="mt-6 grid gap-8 lg:mt-6 lg:grid-cols-[minmax(0,560px)_minmax(0,644px)] lg:justify-between lg:gap-x-[110px]">
             <p className="text-[20px] leading-[28px] font-bold tracking-[-0.6px] text-accent lg:text-[30px] lg:leading-[44px] lg:tracking-[-0.9px]">
+              Istanbul
+              <br />
               December 15–18, 2026
               <br />
-              Istanbul, Turkey
-              <br />
-              Hosted by Pasaj Zivo
+              Venue Pasaj Zivo
             </p>
             <div className="max-w-[644px] space-y-6 text-[18px] leading-[26px] font-medium tracking-[-0.54px] text-accent lg:space-y-10 lg:text-[30px] lg:leading-[40px] lg:tracking-[-0.9px]">
               <p>What is the future of creativity in the age of AI?</p>
@@ -87,9 +80,8 @@ export default function IstanbulPage() {
             <p>
               Our intention is to approach creativity from multiple perspectives
               bringing together scientists, artists, thinkers and technologists
-              in the heart of Istanbul to engage in dialogue, exchange ideas,
-              work and experiment together. The programme will feature three
-              days of both private and public-facing lectures, discussions and
+              in the heart of Istanbul. The programme will feature three days
+              of both private and public-facing lectures, discussions and
               workshops that reflect the specific research interests and
               practices of participating scientists and artists.
             </p>
@@ -97,17 +89,12 @@ export default function IstanbulPage() {
               By creating a shared platform for these different fields, we hope
               to foster an open, intimate, and engaging space for collective
               thought, dialogue, and creative experimentation. Together,
-              scientists and technologists building intelligent systems, and
-              artists examining cultural, emotional and human implications will
-              explore how these different disciplines can challenge and inform
-              one another.
-            </p>
-            <p>
-              Coming from different worlds, participants include world-leading
-              scientists and researchers in AI and mathematics from academia
-              and industry, alongside artists, creative practitioners,
+              world-leading scientists and researchers in AI and mathematics
+              from academia and industry, alongside creative practitioners and
               interdisciplinary researchers working with embodied knowledge,
-              digital art, performance and multi-media practices.
+              digital art, performance and multi-media practices will explore
+              how these different disciplines can challenge and inform one
+              another.
             </p>
             <p>
               Together, they will create an accessible yet intellectually
@@ -123,22 +110,7 @@ export default function IstanbulPage() {
           <h2 className="text-[28px] leading-[34px] font-bold tracking-[-0.84px] lg:text-[48px] lg:leading-[66px] lg:tracking-[-1.44px]">
             Our main venue
           </h2>
-          <div className="mt-8 grid gap-2 lg:grid-cols-[937fr_433fr]">
-            <div className="relative h-[280px] overflow-hidden lg:h-[527px]">
-              <img
-                src="/images/venue-main.jpg"
-                alt="Interior of Pasaj Zivo, with a long wooden table and chairs"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-            <div className="relative h-[280px] overflow-hidden lg:h-[527px]">
-              <img
-                src="/images/venue-side.jpg"
-                alt="Side room at Pasaj Zivo"
-                className="absolute top-[-0.04%] left-[-13.63%] h-[100.08%] w-[218.08%] max-w-none"
-              />
-            </div>
-          </div>
+          <VenueCarousel variant="page" />
           <p className="mt-1 text-[14px] leading-normal text-black/80 italic">
             Photos by Tara Karaçizmeli
           </p>

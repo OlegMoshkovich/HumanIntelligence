@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { VenueCarousel } from "@/components/venue-carousel";
 import { HomeGallery } from "@/components/home-gallery";
 
 const people: {
@@ -66,7 +67,7 @@ const events = [
   {
     when: "15 December",
     title: "Symposium and Workshops",
-    body: "A collective opening session bringing all participants together through sensory experience, with a focus on connection, place, history and the cultural roots of Istanbul. The afternoon is a public programme of interdisciplinary workshops, followed by Muhabbet and dinner.",
+    body: "A collective opening through sensory experiences, exploring place, history and the cultural heritage of Istanbul. The afternoon is a public programme of interdisciplinary workshops, followed by Muhabbet and dinner.",
     note: "ZIVO",
   },
   {
@@ -78,7 +79,7 @@ const events = [
   {
     when: "17 December",
     title: "Research, Exchange and Gathering",
-    body: "Closed working sessions focused on AI, mathematics and interdisciplinary research, followed by music, food and conversation for participants and invited guests.",
+    body: "Closed working sessions on artificial intelligence research, mathematics and engineering, followed by music, food and conversation for participants and invited guests.",
     note: "Private programme — by invitation",
   },
   {
@@ -91,9 +92,8 @@ const events = [
 
 const formats = [
   "Intimate Dialogues and Q&A Sessions",
-  "Circular Discussions",
   "Somatic and Body-Oriented Workshops",
-  "Shared Dinners and Culinary Experiences – Çilingir Sofrası (Locksmith's Table)",
+  "Shared Dinners and Culinary Experiences by Çilingir Sofrası (Locksmith's Table)",
 ];
 
 export function HomeMobile() {
@@ -163,20 +163,20 @@ export function HomeMobile() {
           <p>
             Our intention is to approach creativity from multiple perspectives
             bringing together scientists, artists, thinkers and technologists in
-            the heart of Istanbul to engage in dialogue, exchange ideas, work
-            and experiment together. The programme will feature three days of
-            both private and public-facing lectures, discussions and workshops
-            that reflect the specific research interests and practices of
+            the heart of Istanbul. The programme will feature three days of both
+            private and public-facing lectures, discussions and workshops that
+            reflect the specific research interests and practices of
             participating scientists and artists.
           </p>
           <p>
             By creating a shared platform for these different fields, we hope to
             foster an open, intimate, and engaging space for collective
             thought, dialogue, and creative experimentation. Together,
-            scientists and technologists building intelligent systems, and
-            artists examining cultural, emotional and human implications will
-            explore how these different disciplines can challenge and inform one
-            another.
+            world-leading scientists and researchers in AI and mathematics from
+            academia and industry, alongside creative practitioners and
+            interdisciplinary researchers working with embodied knowledge,
+            digital art, performance and multi-media practices will explore how
+            these different disciplines can challenge and inform one another.
           </p>
         </div>
         <Link
@@ -193,26 +193,7 @@ export function HomeMobile() {
           />
         </Link>
 
-        <div className="relative mt-6 -mx-5 h-[221px]">
-          <img
-            src="/images/home-venue-main.jpg"
-            alt="Interior of Pasaj Zivo"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <Link
-            href="/istanbul#venue"
-            aria-label="See the Istanbul venue"
-            className="absolute top-2 right-4"
-          >
-            <img
-              src="/images/home-arrow.svg"
-              alt=""
-              width={29}
-              height={29}
-              className="rotate-45"
-            />
-          </Link>
-        </div>
+        <VenueCarousel variant="mobile" />
         <p className="mt-3 text-[12px] leading-normal italic">
           Photo credit: Zivo
         </p>

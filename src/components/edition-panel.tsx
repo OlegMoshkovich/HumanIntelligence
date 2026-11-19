@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { participants } from "@/components/participants";
+import { VenueCarousel } from "@/components/venue-carousel";
 
 const events = [
   {
     when: "15 December",
     title: "Symposium and Workshops",
-    body: "A collective opening session bringing all participants together through sensory experience, with a focus on connection, place, history and the cultural roots of Istanbul. The afternoon is a public programme of interdisciplinary workshops, followed by Muhabbet and dinner.",
+    body: "A collective opening through sensory experiences, exploring place, history and the cultural heritage of Istanbul. The afternoon is a public programme of interdisciplinary workshops, followed by Muhabbet and dinner.",
     note: "ZIVO",
   },
   {
@@ -20,7 +21,7 @@ const events = [
   {
     when: "17 December",
     title: "Research, Exchange and Gathering",
-    body: "Closed working sessions focused on AI, mathematics and interdisciplinary research, followed by music, food and conversation for participants and invited guests.",
+    body: "Closed working sessions on artificial intelligence research, mathematics and engineering, followed by music, food and conversation for participants and invited guests.",
     note: "Private programme — by invitation",
   },
   {
@@ -79,20 +80,11 @@ export function EditionPanel() {
           />
         </Link>
         <div className="relative mt-6">
-          {panel === "venue" ? <VenueSlide /> : null}
+          {panel === "venue" ? <VenueCarousel variant="home" /> : null}
           {panel === "participants" ? (
             <ParticipantsSlide start={index} />
           ) : null}
           {panel === "schedule" ? <ScheduleSlide /> : null}
-          {panel === "venue" ? (
-            <Link
-              href="/istanbul#venue"
-              aria-label="See the Istanbul venue"
-              className="absolute top-1/2 right-2 -translate-y-1/2"
-            >
-              <Arrow />
-            </Link>
-          ) : null}
           {panel === "participants" ? (
             <button
               type="button"
@@ -125,28 +117,6 @@ function Arrow() {
       height={29}
       className="rotate-45"
     />
-  );
-}
-
-function VenueSlide() {
-  return (
-    <div className="grid grid-cols-[minmax(0,843fr)_minmax(80px,233fr)]">
-      <div className="relative h-[240px] overflow-hidden sm:h-[360px] lg:h-[474px]">
-        <img
-          src="/images/home-venue-main.jpg"
-          alt="Interior of Pasaj Zivo"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-      <div className="relative h-[240px] overflow-hidden sm:h-[360px] lg:h-[474px]">
-        <img
-          src="/images/home-venue-side.jpg"
-          alt=""
-          className="absolute top-[-0.04%] left-[-22.79%] h-[100.08%] w-[364.64%] max-w-none"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,transparent_16%,#47423c)]" />
-      </div>
-    </div>
   );
 }
 

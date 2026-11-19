@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const editions = [
   { number: "1", place: "Istanbul, 2026", href: "/istanbul" },
-  { number: "2", place: "London, 2027" },
+  { number: "2", place: "London, 2027", href: "/london" },
   { number: "3", place: "Osaka, TBD" },
 ];
 

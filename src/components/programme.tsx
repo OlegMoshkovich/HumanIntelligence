@@ -3,32 +3,32 @@
 import { useState, type ReactNode } from "react";
 
 const researchPresentations =
-  "45 minutes — Research Presentations: One or two scientists, artists or researchers introduce questions central to their current work using accessible language and visual tools such as whiteboards. Presentations should connect their research to broader questions concerning human experience, creativity and the changing role of the human, regardless of the researcher’s primary field.";
+  "45 minutes — Research Presentations: Scientists, artists and researchers introduce questions central to their current research and creative practices, encouraging interdisciplinary exchange.";
 
 const workshopTail = [
   "10 minutes — Break",
-  "30 minutes — Collective Creative Experimentation: A participatory artistic workshop involving activities such as drawing, painting, movement or other forms of embodied exploration.",
-  "30 minutes — Open Discussion and Feedback: A facilitated conversation reflecting on the research, shared experiences and questions emerging from the session.",
+  "30 minutes — Collective Creative Experimentation: A participatory artistic workshop involving drawing, painting, movement or other forms of embodied exploration.",
+  "30 minutes — Open Discussion and Reflection: A collective conversation reflecting on the research, shared experiences and questions emerging from the workshops.",
 ];
 
 const opening =
-  "A collective opening session bringing all participants together through sensory experience, with a focus on connection, place, history and the cultural roots of Istanbul.";
+  "A collective opening bringing participants together through sensory experiences, exploring connections to place, history and the cultural heritage of Istanbul.";
 
 const researchSessions =
-  "Closed working sessions designed to encourage focused exchange, collaborative research and experimentation between participating scientists and creative practitioners.";
+  "Closed working sessions designed to encourage focused exchange, collaborative research and experimentation across scientific and creative disciplines.";
 
-const lunch =
-  "Informal lunch at a local café adjacent to the symposium venue.";
+const lunch = "Informal lunch at a local café near the symposium venue.";
 
-const muhabbet = [
-  "A collective conversation exploring some of the questions that feel most urgent to us, approached from less conventional perspectives. The discussion will consider how we understand and speak about data, security and intelligence, and how these questions relate to both individual and collective experience.",
-  "An intimate, unconventional Q&A format in which scientists, artists and members of the public gather in a circle for open dialogue.",
-  "Rather than following a traditional speaker–audience format, the session invites everyone to participate equally, drawing on personal experiences, professional perspectives and individual questions.",
-  "The central theme will be the role of the human in an increasingly intelligent world, explored through both scientific and creative perspectives.",
+const workshopLead = [
+  "Participatory sessions bringing together scientists, artists and members of the public to explore questions surrounding creativity, intelligence and the changing role of the human.",
+  "Each session will follow a structured yet experimental format:",
 ];
 
+const muhabbetLead =
+  "An intimate and unconventional format for collective dialogue, bringing together scientists, artists and members of the public in an open circle of conversation.";
+
 const dinner =
-  "A special dinner at a carefully selected local restaurant, followed by an informal evening together with drinks and conversation.";
+  "A shared dinner at a carefully selected local restaurant, offering an opportunity to continue conversations and connect in a relaxed, informal setting.";
 
 type Session = {
   time: string;
@@ -44,12 +44,14 @@ type Session = {
 const days: {
   label: string;
   title: string;
+  venue?: string;
   intro?: string;
   sessions: Session[];
 }[] = [
   {
     label: "Day 1 | December 15",
-    title: "15 December | Symposium and Workshops | ZIVO",
+    title: "15 December | Symposium and Workshops",
+    venue: "Venue: ZIVO, Istanbul",
     sessions: [
       {
         time: "10:00–10:30",
@@ -59,7 +61,7 @@ const days: {
       {
         time: "10:30–12:30",
         title: "Private Research and Working Sessions",
-        note: "For participating practitioners only.",
+        note: "For participating scientists, artists and creative practitioners only.",
         paragraphs: [researchSessions],
       },
       {
@@ -72,25 +74,22 @@ const days: {
         title: "Interdisciplinary Workshops",
         note: "Public programme — advance reservation required. Limited capacity.",
         rsvp: true,
-        paragraphs: [
-          "Interactive sessions bringing together scientists, artists and members of the public to explore questions surrounding creativity, intelligence and the role of the human.",
-          "Each session will follow a structured yet experimental format:",
-        ],
+        paragraphs: workshopLead,
         list: [
-          "60 minutes — Somatic practice with Aysegul Akyuz: A collective artistic or body-oriented exercise designed to establish a shared starting point and encourage connection between participants.",
+          "60 minutes — Somatic Practice with Ayşegül Akyüz: A collective, body-oriented experience designed to establish a shared starting point, encourage embodied awareness and foster connections between participants.",
           researchPresentations,
           ...workshopTail,
         ],
-        after:
-          "The remaining time will allow for introductions, transitions and informal exchange.",
       },
       { time: "17:00–17:30", title: "Break" },
       {
         time: "17:30–19:30",
-        title: "Muhabbet: Tea, Dialogue and Open Conversations",
+        title: "Muhabbet: Tea and Open Conversations",
         note: "Public programme — advance reservation required.",
         rsvp: true,
-        paragraphs: muhabbet,
+        paragraphs: [
+          `${muhabbetLead} The discussion will consider how we understand and speak about data, security and intelligence, and how these questions relate to both individual and collective experience.`,
+        ],
         facilitated: true,
       },
       {
@@ -102,7 +101,8 @@ const days: {
   },
   {
     label: "Day 2 | December 16",
-    title: "16 December | Symposium and Workshops | ZIVO",
+    title: "16 December | Symposium and Workshops",
+    venue: "Venue: ZIVO, Istanbul",
     sessions: [
       {
         time: "10:00–10:30",
@@ -112,7 +112,7 @@ const days: {
       {
         time: "10:30–12:30",
         title: "Private Research and Working Sessions",
-        note: "For participating practitioners only.",
+        note: "For participating scientists, artists and creative practitioners only.",
         paragraphs: [researchSessions],
       },
       {
@@ -125,25 +125,22 @@ const days: {
         title: "Interdisciplinary Workshops",
         note: "Public programme — advance reservation required. Limited capacity.",
         rsvp: true,
-        paragraphs: [
-          "Interactive sessions bringing together scientists, artists and members of the public to explore questions surrounding creativity, intelligence and the role of the human.",
-          "Each session will follow a structured yet experimental format:",
-        ],
+        paragraphs: workshopLead,
         list: [
-          "60 minutes — Creative workshop: A collective artistic or body-oriented exercise designed to establish a shared starting point and encourage connection between participants.",
+          "60 minutes — Creative Practice: A collective, creative-oriented experience designed to establish a shared starting point, encourage embodied awareness and foster connections between participants.",
           researchPresentations,
           ...workshopTail,
         ],
-        after:
-          "The remaining time will allow for introductions, transitions and informal exchange.",
       },
       { time: "17:00–17:30", title: "Break" },
       {
         time: "17:30–19:30",
-        title: "Muhabbet: Tea, Dialogue and Open Conversations",
+        title: "Muhabbet: Tea and Open Conversations",
         note: "Public programme — advance reservation required.",
         rsvp: true,
-        paragraphs: muhabbet,
+        paragraphs: [
+          `${muhabbetLead} The session will explore some of the most pressing questions of our time from perspectives that extend beyond conventional scientific and technological discourse.`,
+        ],
         facilitated: true,
       },
       {
@@ -156,16 +153,14 @@ const days: {
   {
     label: "Day 3 | December 17",
     title: "17 December | Research, Exchange and Gathering",
-    intro:
-      "Private programme — participation by invitation only, unless otherwise indicated.",
+    intro: "Private programme — participation by invitation only.",
     sessions: [
       {
         time: "10:00–15:00",
         title: "Research Sessions and Collaborative Discussions",
         paragraphs: [
-          "Closed working sessions focused on AI, mathematics and interdisciplinary research.",
-          "The format will encourage informal, in-depth exchange through whiteboard discussions, presentations of ongoing research, collective problem-solving and open questions.",
-          "Coffee, tea and refreshments will be available throughout, creating a relaxed working environment.",
+          "Closed working sessions focused on artificial intelligence research, mathematics and engineering. The format will encourage informal, in-depth exchange through whiteboard discussions, presentations of ongoing research, collaborative problem-solving and the exploration of open research questions.",
+          "Coffee, tea and refreshments will be available throughout, creating a relaxed and collaborative working environment.",
         ],
       },
       {
@@ -173,8 +168,7 @@ const days: {
         title: "Music, Food and Conversations",
         note: "For participating practitioners and invited guests only.",
         paragraphs: [
-          "An informal afternoon and evening bringing together participants and invited guests through live music, food, drinks and conversation.",
-          "The gathering will provide an opportunity to continue discussions beyond the formal symposium programme, encouraging personal connections and exchange across disciplines.",
+          "An informal afternoon and evening bringing together participants and invited guests through live music, food, drinks and conversation. The gathering offers an opportunity to continue discussions beyond the formal symposium programme, fostering personal connections and interdisciplinary exchange.",
           "Venue: A private residence approximately 40 minutes from central Istanbul.",
         ],
       },
@@ -189,21 +183,21 @@ const days: {
         time: "10:00–12:00",
         title: "Morning Coffee and AI Conversations",
         paragraphs: [
-          "Informal discussions over coffee in central Istanbul, providing an opportunity to reflect on the previous days and continue conversations around research, creativity and human intelligence.",
+          "Informal discussions over coffee in central Istanbul, offering an opportunity to reflect on the previous days and continue conversations around research, creativity and human intelligence.",
         ],
       },
       {
         time: "12:00–15:00",
         title: "Exploring Istanbul",
         paragraphs: [
-          "A shared cultural experience exploring the historic centre of Istanbul, its architecture, public spaces and cultural heritage.",
+          "A shared cultural experience exploring Istanbul's historic centre, architecture, public spaces and cultural heritage.",
         ],
       },
       {
         time: "15:00–17:00",
         title: "Traditional Turkish Hammam Experience",
         paragraphs: [
-          "A visit to Kılıç Ali Paşa Hamamı, offering participants an opportunity to experience a traditional Turkish bathing ritual.",
+          "A visit to Kılıç Ali Paşa Hamamı, offering participants an opportunity to experience a traditional Turkish bathing ritual and engage with an important aspect of the city's cultural heritage.",
         ],
       },
       {
@@ -211,7 +205,7 @@ const days: {
         title: "Closing Dinner and Drinks at Cavit",
         paragraphs: [
           "A shared dinner marking the conclusion of the programme.",
-          "An opportunity for participants to reflect on their experiences, strengthen new connections and consider possibilities for future dialogue and collaboration.",
+          "An opportunity for participants to reflect on their experiences, strengthen new connections and explore possibilities for future dialogue and collaboration.",
         ],
       },
     ],
@@ -237,8 +231,9 @@ export function Programme() {
   return (
     <div>
       <p className="mb-8 max-w-[760px] text-[16px] leading-[26px] lg:text-[20px] lg:leading-[30px]">
-        The programme is provisional. The final schedule, session topics and
+        This programme is provisional. The final schedule, session topics and
         speakers will be confirmed once all participants have been finalised.
+        All timings are subject to change.
       </p>
       <div className="grid gap-10 lg:grid-cols-[222px_minmax(0,1fr)] lg:gap-14">
         <div className="flex flex-col">
@@ -260,6 +255,9 @@ export function Programme() {
           <h3 className="text-[22px] leading-[30px] font-bold tracking-[-0.66px] lg:text-[30px] lg:leading-[40px] lg:tracking-[-0.9px]">
             {day.title}
           </h3>
+          {day.venue ? (
+            <p className="mt-3 text-[16px] leading-normal">{day.venue}</p>
+          ) : null}
           {day.intro ? (
             <p className="mt-3 text-[16px] leading-normal italic">{day.intro}</p>
           ) : null}
@@ -287,7 +285,7 @@ export function Programme() {
                     {session.after ? <p>{session.after}</p> : null}
                     {session.facilitated ? (
                       <p className="italic">
-                        Facilitated by Anna Aristova and Dilan Bozer
+                        Facilitated by Anna Aristova and Dilan Bozer.
                       </p>
                     ) : null}
                   </div>
@@ -296,7 +294,8 @@ export function Programme() {
             ))}
           </div>
           <p className="mt-6 text-[16px] leading-normal italic">
-            Exact schedule subject to change.
+            The programme, session formats, venues and timings are subject to
+            change. Final details will be confirmed closer to the event.
           </p>
           <div className="mt-8 flex justify-end">
             <button
