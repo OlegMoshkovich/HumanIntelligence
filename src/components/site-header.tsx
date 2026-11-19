@@ -63,7 +63,7 @@ export function SiteHeader({
           </Link>
         ) : null}
       </div>
-      <div className="flex items-start gap-8 lg:gap-12">
+      <div className="flex items-center gap-8 lg:gap-12">
         <div className="relative">
           <button
             type="button"
@@ -94,7 +94,7 @@ export function SiteHeader({
             Editions
           </button>
           {open ? (
-            <div className="absolute top-8 right-0 z-20 w-max rounded-[11px] bg-white px-5 py-4 text-[16px] font-medium leading-[1.96] whitespace-nowrap lg:top-[30px] lg:px-7 lg:py-[18px]">
+            <div className="absolute top-full right-0 z-20 mt-2 w-max rounded-[11px] bg-white px-5 py-4 text-[16px] font-medium leading-[1.96] whitespace-nowrap lg:mt-3 lg:px-7 lg:py-[18px]">
               {editions.map((edition, index) => {
                 const className = `block w-full text-left whitespace-nowrap ${
                   index === selected ? "underline" : ""
@@ -125,21 +125,15 @@ export function SiteHeader({
                   </button>
                 );
               })}
-              <button
-                type="button"
-                className="mt-3 flex h-[46px] w-full items-center justify-center rounded-full bg-black px-6 text-[16px] leading-none font-medium whitespace-nowrap text-white lg:hidden"
-              >
+              <span className="mt-3 flex h-[46px] w-full items-center justify-center rounded-full bg-black px-6 text-[16px] leading-none font-medium whitespace-nowrap text-white lg:hidden">
                 Register your interest
-              </button>
+              </span>
             </div>
           ) : null}
         </div>
-        <button
-          type="button"
-          className="hidden h-[46px] shrink-0 items-center justify-center rounded-[20px] bg-black px-7 text-[16px] font-medium text-white lg:inline-flex"
-        >
+        <span className="hidden h-[46px] shrink-0 cursor-default items-center justify-center rounded-[20px] bg-black px-7 text-[16px] font-medium text-white lg:inline-flex">
           Register your interest
-        </button>
+        </span>
       </div>
     </header>
   );

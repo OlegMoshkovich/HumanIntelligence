@@ -100,7 +100,7 @@ export function EditionPanel() {
         </div>
         {panel === "venue" ? (
           <p className="mt-2 text-[16px] leading-normal italic">
-            Photo credit: Zivo
+            Photos by Tara Karaçizmeli
           </p>
         ) : null}
       </div>

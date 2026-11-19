@@ -195,7 +195,7 @@ export function HomeMobile() {
 
         <VenueCarousel variant="mobile" />
         <p className="mt-3 text-[12px] leading-normal italic">
-          Photo credit: Zivo
+          Photos by Tara Karaçizmeli
         </p>
         <p className="mt-6 text-[20px] leading-[30px] font-medium">
           Venue: Pasaj Zivo
