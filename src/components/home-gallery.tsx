@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type PointerEvent } from "react";
+import { useLayoutEffect, useRef, useState, type PointerEvent } from "react";
 
 const slides = [
   {
@@ -117,21 +117,31 @@ function SlidePair({
   );
 }
 
+const loop = [slides[slides.length - 1], ...slides, slides[0]];
+
+function restingIndex(position: number) {
+  if (position <= 0) return slides.length;
+  if (position > slides.length) return 1;
+  return position;
+}
+
 export function HomeGallery({ variant }: { variant: "desktop" | "mobile" }) {
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const [drag, setDrag] = useState(0);
   const [width, setWidth] = useState(0);
   const startX = useRef(0);
+  const dragOrigin = useRef(0);
   const pointer = useRef<number | null>(null);
   const frame = useRef<HTMLElement>(null);
-  const indexRef = useRef(0);
+  const indexRef = useRef(1);
+  const positionRef = useRef(1);
   const dragRef = useRef(0);
   const frameId = useRef(0);
   const gesture = useRef(0);
   indexRef.current = index;
   dragRef.current = drag;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = frame.current;
     if (!element) return;
     const measure = () => setWidth(element.clientWidth);
@@ -147,28 +157,34 @@ export function HomeGallery({ variant }: { variant: "desktop" | "mobile" }) {
 
   const settle = (direction: -1 | 0 | 1) => {
     const frameWidth = frame.current?.clientWidth ?? width;
-    const nextIndex =
-      direction === 0
-        ? indexRef.current
-        : (indexRef.current + direction + slides.length) % slides.length;
-    const from = -indexRef.current * frameWidth + dragRef.current;
-    const to = -nextIndex * frameWidth;
+    const rendered = indexRef.current;
+    const from = -rendered * frameWidth + dragRef.current;
+    const destination = positionRef.current + direction;
+    positionRef.current = destination;
+    const to = -destination * frameWidth;
     cancelAnimationFrame(frameId.current);
-    if (!frameWidth || from === to) {
+    gesture.current += 1;
+    const generation = gesture.current;
+    const rest = () => {
+      if (gesture.current !== generation) return;
+      const resting = restingIndex(destination);
+      positionRef.current = resting;
+      setIndex(resting);
       setDrag(0);
-      setIndex(nextIndex);
+    };
+    if (!frameWidth || from === to) {
+      rest();
       return;
     }
     const start = performance.now();
-    const generation = gesture.current;
     const tick = (now: number) => {
       if (gesture.current !== generation) return;
       const progress = Math.min(1, (now - start) / 450);
       const eased = 1 - (1 - progress) ** 3;
-      setIndex(nextIndex);
-      setDrag(from + (to - from) * eased - to);
+      const visual = from + (to - from) * eased;
+      setDrag(visual + rendered * frameWidth);
       if (progress < 1) frameId.current = requestAnimationFrame(tick);
-      else setDrag(0);
+      else rest();
     };
     frameId.current = requestAnimationFrame(tick);
   };
@@ -182,6 +198,7 @@ export function HomeGallery({ variant }: { variant: "desktop" | "mobile" }) {
     gesture.current += 1;
     pointer.current = event.pointerId;
     startX.current = event.clientX;
+    dragOrigin.current = dragRef.current;
     cancelAnimationFrame(frameId.current);
     try {
       event.currentTarget.setPointerCapture(event.pointerId);
@@ -192,7 +209,7 @@ export function HomeGallery({ variant }: { variant: "desktop" | "mobile" }) {
 
   const onPointerMove = (event: PointerEvent<HTMLElement>) => {
     if (pointer.current !== event.pointerId) return;
-    setDrag(event.clientX - startX.current);
+    setDrag(dragOrigin.current + event.clientX - startX.current);
   };
 
   const onPointerUp = (event: PointerEvent<HTMLElement>) => {
@@ -230,8 +247,12 @@ export function HomeGallery({ variant }: { variant: "desktop" | "mobile" }) {
             : `translate3d(${-index * 100}%, 0, 0)`,
         }}
       >
-        {slides.map((slide) => (
-          <SlidePair key={slide.left.src} slide={slide} variant={variant} />
+        {loop.map((slide, position) => (
+          <SlidePair
+            key={`${slide.left.src}-${position}`}
+            slide={slide}
+            variant={variant}
+          />
         ))}
       </div>
       <div
