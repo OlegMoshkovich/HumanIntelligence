@@ -1,7 +1,3 @@
-"use client";
-
-import { useState } from "react";
-
 export const participants: {
   name: string;
   role: string;
@@ -117,7 +113,7 @@ function PersonCard({
         className={
           compact
             ? "relative size-[163px] overflow-hidden"
-            : "relative size-[200px] overflow-hidden"
+            : "relative aspect-square w-full overflow-hidden"
         }
       >
         <img
@@ -163,13 +159,8 @@ function PersonCard({
 }
 
 export function Participants() {
-  const [start, setStart] = useState(0);
-  const visible = [0, 1, 2, 3].map(
-    (offset) => participants[(start + offset) % participants.length],
-  );
-
   return (
-    <div className="relative lg:w-fit">
+    <div>
       <ul className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-2 lg:hidden">
         {participants.map((person) => (
           <li key={person.name} className="w-[163px] shrink-0">
@@ -177,27 +168,13 @@ export function Participants() {
           </li>
         ))}
       </ul>
-      <ul className="hidden grid-cols-4 gap-x-5 lg:grid">
-        {visible.map((person) => (
-          <li key={person.name} className="w-[200px]">
+      <ul className="hidden grid-cols-4 gap-x-6 gap-y-12 lg:grid">
+        {participants.map((person) => (
+          <li key={person.name}>
             <PersonCard person={person} />
           </li>
         ))}
       </ul>
-      <button
-        type="button"
-        aria-label="Next participants"
-        onClick={() => setStart((value) => (value + 1) % participants.length)}
-        className="absolute top-[100px] left-full ml-3 hidden -translate-y-1/2 lg:block"
-      >
-        <img
-          src="/images/arrow.svg"
-          alt=""
-          width={29}
-          height={29}
-          className="rotate-45"
-        />
-      </button>
     </div>
   );
 }
