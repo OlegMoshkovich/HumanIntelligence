@@ -104,6 +104,64 @@ export const participants: {
   },
 ];
 
+function PersonCard({
+  person,
+  compact = false,
+}: {
+  person: (typeof participants)[number];
+  compact?: boolean;
+}) {
+  return (
+    <>
+      <div
+        className={
+          compact
+            ? "relative size-[163px] overflow-hidden"
+            : "relative aspect-square overflow-hidden"
+        }
+      >
+        <img
+          src={person.image}
+          alt={person.name}
+          className={`absolute inset-0 h-full w-full object-cover ${person.imageClass ?? ""}`}
+        />
+      </div>
+      <h3
+        className={
+          compact
+            ? "mt-2 text-[12px] leading-normal font-bold"
+            : "mt-4 text-[20px] leading-normal font-bold"
+        }
+      >
+        {person.name}
+      </h3>
+      {person.role ? (
+        <p
+          className={
+            compact
+              ? "text-[10px] leading-normal font-light italic"
+              : "text-[14px] leading-normal font-light italic"
+          }
+        >
+          {person.role}
+        </p>
+      ) : null}
+      <a
+        href={person.link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={
+          compact
+            ? "text-[10px] leading-normal font-light text-accent italic underline"
+            : "text-[14px] leading-normal font-light text-accent italic underline"
+        }
+      >
+        {person.link.label}
+      </a>
+    </>
+  );
+}
+
 export function Participants() {
   const [start, setStart] = useState(0);
   const visible = [0, 1, 2, 3].map(
@@ -112,32 +170,17 @@ export function Participants() {
 
   return (
     <div className="relative">
-      <ul className="grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4">
+      <ul className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-2 lg:hidden">
+        {participants.map((person) => (
+          <li key={person.name} className="w-[163px] shrink-0">
+            <PersonCard person={person} compact />
+          </li>
+        ))}
+      </ul>
+      <ul className="hidden grid-cols-4 gap-x-5 lg:grid">
         {visible.map((person) => (
           <li key={person.name}>
-            <div className="relative aspect-square overflow-hidden">
-              <img
-                src={person.image}
-                alt={person.name}
-                className={`absolute inset-0 h-full w-full object-cover ${person.imageClass ?? ""}`}
-              />
-            </div>
-            <h3 className="mt-4 text-[20px] leading-normal font-bold">
-              {person.name}
-            </h3>
-            {person.role ? (
-              <p className="text-[14px] leading-normal font-light italic">
-                {person.role}
-              </p>
-            ) : null}
-            <a
-              href={person.link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[14px] leading-normal font-light text-accent italic underline"
-            >
-              {person.link.label}
-            </a>
+            <PersonCard person={person} />
           </li>
         ))}
       </ul>
@@ -145,7 +188,7 @@ export function Participants() {
         type="button"
         aria-label="Next participants"
         onClick={() => setStart((value) => (value + 1) % participants.length)}
-        className="absolute top-[38%] -right-2"
+        className="absolute top-[38%] -right-2 hidden lg:block"
       >
         <img
           src="/images/arrow.svg"

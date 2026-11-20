@@ -275,10 +275,10 @@ export function VenueCarousel({
             className="absolute inset-0 h-full w-full object-cover"
           />
         </div>
-        <div className="relative h-[280px] overflow-hidden lg:h-[527px]">
+        <div className="relative hidden h-[280px] overflow-hidden lg:block lg:h-[527px]">
           <img
             src={upcoming.src}
-            alt={upcoming.alt}
+            alt=""
             draggable={false}
             className="absolute inset-0 h-full w-full object-cover"
           />
