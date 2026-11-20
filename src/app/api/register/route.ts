@@ -3,7 +3,7 @@ import { Resend } from "resend";
 const recipient = "anna@aristovadesign.com";
 
 export async function POST(request: Request) {
-  let body: { name?: unknown; email?: unknown };
+  let body: { name?: unknown; email?: unknown; session?: unknown };
   try {
     body = await request.json();
   } catch {
@@ -12,6 +12,7 @@ export async function POST(request: Request) {
 
   const name = typeof body.name === "string" ? body.name.trim() : "";
   const email = typeof body.email === "string" ? body.email.trim() : "";
+  const session = typeof body.session === "string" ? body.session.trim().slice(0, 300) : "";
   if (!name || name.length > 200 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return Response.json({ error: "Enter your name and email." }, { status: 400 });
   }
@@ -27,16 +28,19 @@ export async function POST(request: Request) {
       from: "Human x Intelligence <hello@mail.human-x-intelligence.com>",
       to: [recipient],
       replyTo: email,
-      subject: `Register your interest — ${name}`,
+      subject: session ? `RSVP — ${name} — ${session}` : `Register your interest — ${name}`,
       template: {
         id: "register-interest",
         variables: {
           VISITOR_NAME: name,
           VISITOR_EMAIL: email,
+          SESSION: session || "—",
         },
       },
     },
-    { idempotencyKey: `register-interest/${email.toLowerCase()}` },
+    {
+      idempotencyKey: `register-interest/${email.toLowerCase()}/${(session || "general").replace(/[^\x20-\x7E]/g, "-")}`,
+    },
   );
 
   if (error) {

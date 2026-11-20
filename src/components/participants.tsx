@@ -117,7 +117,7 @@ function PersonCard({
         className={
           compact
             ? "relative size-[163px] overflow-hidden"
-            : "relative aspect-square overflow-hidden"
+            : "relative size-[200px] overflow-hidden"
         }
       >
         <img
@@ -130,7 +130,7 @@ function PersonCard({
         className={
           compact
             ? "mt-2 text-[12px] leading-normal font-bold"
-            : "mt-4 text-[20px] leading-normal font-bold"
+            : "mt-3 text-[16px] leading-normal font-bold"
         }
       >
         {person.name}
@@ -169,7 +169,7 @@ export function Participants() {
   );
 
   return (
-    <div className="relative">
+    <div className="relative lg:w-fit">
       <ul className="-mx-5 flex gap-4 overflow-x-auto px-5 pb-2 lg:hidden">
         {participants.map((person) => (
           <li key={person.name} className="w-[163px] shrink-0">
@@ -179,7 +179,7 @@ export function Participants() {
       </ul>
       <ul className="hidden grid-cols-4 gap-x-5 lg:grid">
         {visible.map((person) => (
-          <li key={person.name}>
+          <li key={person.name} className="w-[200px]">
             <PersonCard person={person} />
           </li>
         ))}
@@ -188,7 +188,7 @@ export function Participants() {
         type="button"
         aria-label="Next participants"
         onClick={() => setStart((value) => (value + 1) % participants.length)}
-        className="absolute top-[38%] -right-2 hidden lg:block"
+        className="absolute top-[100px] left-full ml-3 hidden -translate-y-1/2 lg:block"
       >
         <img
           src="/images/arrow.svg"

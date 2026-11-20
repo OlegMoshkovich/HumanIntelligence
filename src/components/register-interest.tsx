@@ -5,9 +5,11 @@ import { useEffect, useId, useState } from "react";
 export function RegisterInterestButton({
   className,
   children,
+  session,
 }: {
   className?: string;
   children: React.ReactNode;
+  session?: string;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -16,12 +18,18 @@ export function RegisterInterestButton({
       <button type="button" className={className} onClick={() => setOpen(true)}>
         {children}
       </button>
-      {open ? <RegisterDialog onClose={() => setOpen(false)} /> : null}
+      {open ? <RegisterDialog session={session} onClose={() => setOpen(false)} /> : null}
     </>
   );
 }
 
-function RegisterDialog({ onClose }: { onClose: () => void }) {
+function RegisterDialog({
+  onClose,
+  session,
+}: {
+  onClose: () => void;
+  session?: string;
+}) {
   const titleId = useId();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -43,7 +51,7 @@ function RegisterDialog({ onClose }: { onClose: () => void }) {
     const response = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email }),
+      body: JSON.stringify({ name, email, session }),
     });
     const payload = (await response.json().catch(() => null)) as { error?: string } | null;
     if (!response.ok) {
@@ -82,6 +90,13 @@ function RegisterDialog({ onClose }: { onClose: () => void }) {
             </svg>
           </button>
         </div>
+        {session ? (
+          <p className="mt-4 text-[16px] leading-[26px]">
+            <span className="font-medium">Session</span>
+            <br />
+            {session}
+          </p>
+        ) : null}
         {status === "sent" ? (
           <p className="mt-6 text-[16px] leading-[26px]">
             Thank you. Your interest has been sent.

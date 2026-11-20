@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { RegisterInterestButton } from "@/components/register-interest";
 
 const researchPresentations =
   "45 minutes — Research Presentations: Scientists, artists and researchers introduce questions central to their current research and creative practices, encouraging interdisciplinary exchange.";
@@ -212,14 +213,14 @@ const days: {
   },
 ];
 
-function RsvpButton() {
+function RsvpButton({ session }: { session: string }) {
   return (
-    <button
-      type="button"
-      className="inline-flex h-[46px] items-center justify-center rounded-[20px] bg-white px-7 text-[16px] font-medium text-black"
+    <RegisterInterestButton
+      session={session}
+      className="inline-flex h-[46px] items-center justify-center rounded-[20px] bg-black px-7 text-[16px] font-medium text-white"
     >
       RSVP
-    </button>
+    </RegisterInterestButton>
   );
 }
 
@@ -268,7 +269,13 @@ export function Programme() {
                 time={session.time}
                 title={session.title}
                 note={session.note}
-                action={session.rsvp ? <RsvpButton /> : undefined}
+                action={
+                  session.rsvp ? (
+                    <RsvpButton
+                      session={`${day.label.split("|").pop()?.trim()}, ${session.time} — ${session.title}`}
+                    />
+                  ) : undefined
+                }
               >
                 {session.paragraphs || session.list || session.facilitated ? (
                   <div className="space-y-4">
